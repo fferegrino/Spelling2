@@ -12,6 +12,14 @@ namespace Spelling2
         public Spelling2Page()
         {
             InitializeComponent();
+
+            //var fontFamily = Device.RuntimePlatform == Device.Android
+            //    ? "RobotoMono-Regular.ttf#Roboto Mono"
+            //    : "Roboto Mono";
+
+            //OutputLabel.FontFamily = fontFamily;
+            //InputEntry.FontFamily = fontFamily;
+
             var outputTapGestureRecognizer = new TapGestureRecognizer
             {
                 NumberOfTapsRequired = 1

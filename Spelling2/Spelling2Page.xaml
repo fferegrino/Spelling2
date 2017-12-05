@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Spelling2" xmlns:cv="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView" x:Class="Spelling2.Spelling2Page">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Spelling2"
+             
+             xmlns:cv="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions" x:Class="Spelling2.Spelling2Page">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -7,19 +10,19 @@
         </Grid.RowDefinitions>
 
 
-            <Entry x:Name="InputEntry" FontFamily="Roboto Mono"
+            <Entry x:Name="InputEntry" 
         HorizontalTextAlignment="Center"  FontSize="{StaticResource NotSoHuge}"></Entry>
-            <Label x:Name="OutputLabel"  FontFamily="Roboto Mono" HorizontalTextAlignment="Center"  FontSize="{StaticResource NotSoHuge}" IsVisible="false"></Label>
+            <Label x:Name="OutputLabel" HorizontalTextAlignment="Center"  FontSize="{StaticResource NotSoHuge}" IsVisible="false"></Label>
 
 
             <Button Text="Spell!" 
                     Grid.Row="1" x:Name="SpellButton"  
                     Clicked="SpellButton_Clicked"></Button>
-            <cv:CarouselView Grid.Row="1"  
+        <cv:CarouselViewControl  Grid.Row="1"  
                 x:Name="LettersView" 
                  ItemSelected="LettersView_ItemSelected"
                 IsVisible="false">
-            <cv:CarouselView.ItemTemplate>
+            <cv:CarouselViewControl.ItemTemplate>
                 <DataTemplate>
                     <Grid>
                         <Grid.RowDefinitions>
@@ -41,7 +44,7 @@
                             Text="{Binding Icao}"></Label>
                     </Grid>
                 </DataTemplate>
-            </cv:CarouselView.ItemTemplate>
-        </cv:CarouselView>
+            </cv:CarouselViewControl.ItemTemplate>
+        </cv:CarouselViewControl>
     </Grid>
 </ContentPage>

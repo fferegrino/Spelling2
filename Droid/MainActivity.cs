@@ -7,6 +7,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using CarouselView.FormsPlugin.Android;
 
 namespace Spelling2.Droid
 {
@@ -21,6 +22,7 @@ namespace Spelling2.Droid
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
+            CarouselViewRenderer.Init();
 
             LoadApplication(new App());
         }
