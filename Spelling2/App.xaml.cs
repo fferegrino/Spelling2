@@ -9,8 +9,7 @@ namespace Spelling2
             InitializeComponent();
             IntializeCodedComponents();
 
-
-            MainPage = new NavigationPage(new Spelling2Page());
+            MainPage = new MainPage();
         }
 
         private void IntializeCodedComponents()

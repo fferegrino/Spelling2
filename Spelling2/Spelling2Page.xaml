@@ -1,29 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Spelling2"
              xmlns:cv="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
              x:Class="Spelling2.Spelling2Page"
-             Title="Spelling2">
+             Title="Spell">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
 
-            <Entry x:Name="InputEntry" 
-        HorizontalTextAlignment="Center"  FontSize="{StaticResource NotSoHuge}"></Entry>
-            <Label x:Name="OutputLabel" HorizontalTextAlignment="Center"  FontSize="{StaticResource NotSoHuge}" IsVisible="false"></Label>
+        <Entry x:Name="InputEntry"
+               HorizontalTextAlignment="Center" FontSize="{StaticResource NotSoHuge}" />
+        <Label x:Name="OutputLabel" HorizontalTextAlignment="Center" FontSize="{StaticResource NotSoHuge}"
+               IsVisible="false" />
 
 
-            <Button Text="Spell!" 
-                    Grid.Row="1" x:Name="SpellButton"  
-                    Clicked="SpellButton_Clicked"></Button>
-        <cv:CarouselViewControl  Grid.Row="1"  
-                x:Name="LettersView" 
-            PositionSelected="LettersView_ItemSelected"
-                IsVisible="false">
+        <Button Text="Spell!"
+                Grid.Row="1" x:Name="SpellButton"
+                Clicked="SpellButton_Clicked" />
+        <cv:CarouselViewControl Grid.Row="1"
+                                x:Name="LettersView"
+                                PositionSelected="LettersView_ItemSelected"
+                                IsVisible="false">
             <cv:CarouselViewControl.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -34,17 +36,17 @@
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
                         <Label FontSize="{StaticResource Huge}" FontFamily="Roboto Mono"
-                            HorizontalTextAlignment="Center"
-                            VerticalTextAlignment="Center"
-                            Text="{Binding Char}"></Label>
+                               HorizontalTextAlignment="Center"
+                               VerticalTextAlignment="Center"
+                               Text="{Binding Char}" />
                         <Label Grid.Row="1" FontSize="{StaticResource Bigger}" FontFamily="Roboto Mono"
-                            HorizontalTextAlignment="Center"
-                            Margin="10"
-                            Text="{Binding Icao2008}"></Label>
+                               HorizontalTextAlignment="Center"
+                               Margin="10"
+                               Text="{Binding Icao2008}" />
                         <Label Grid.Row="2" FontSize="{StaticResource NotSoHuge}" FontFamily="Roboto Mono"
-                            HorizontalTextAlignment="Center"
-                            Margin="10"
-                            Text="{Binding Icao}"></Label>
+                               HorizontalTextAlignment="Center"
+                               Margin="10"
+                               Text="{Binding Icao}" />
                         <Button Grid.Row="3" Clicked="PlaySound_Clicked" Text="Play" />
                     </Grid>
                 </DataTemplate>
