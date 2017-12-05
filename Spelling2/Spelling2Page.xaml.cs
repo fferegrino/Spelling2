@@ -15,12 +15,12 @@ namespace Spelling2
         {
             InitializeComponent();
 
-            //var fontFamily = Device.RuntimePlatform == Device.Android
-            //    ? "RobotoMono-Regular.ttf#Roboto Mono"
-            //    : "Roboto Mono";
+            var fontFamily = Device.RuntimePlatform == Device.Android
+                ? "RobotoMono-Regular.ttf#Roboto Mono"
+                : "Roboto Mono";
 
-            //OutputLabel.FontFamily = fontFamily;
-            //InputEntry.FontFamily = fontFamily;
+            OutputLabel.FontFamily = fontFamily;
+            InputEntry.FontFamily = fontFamily;
 
             var outputTapGestureRecognizer = new TapGestureRecognizer
             {
@@ -52,6 +52,8 @@ namespace Spelling2
 
             OutputLabel.IsVisible = false;
             LettersView.IsVisible = false;
+
+            InputEntry.Focus();
 
             LettersView.Position = 0;
 
