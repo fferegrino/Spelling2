@@ -6,11 +6,12 @@ using Spelling2.Services;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(AudioPlayerService))]
+
 namespace Spelling2.iOS.Services
 {
     public class AudioPlayerService : IAudioPlayerService
     {
-        private AVAudioPlayer _audioPlayer = null;
+        private AVAudioPlayer _audioPlayer;
         public Action OnFinishedPlaying { get; set; }
 
         public void Play(string pathToAudioFile)
@@ -22,15 +23,10 @@ namespace Spelling2.iOS.Services
                 _audioPlayer.Stop();
             }
 
-            string localUrl = pathToAudioFile;
+            var localUrl = pathToAudioFile;
             _audioPlayer = AVAudioPlayer.FromUrl(NSUrl.FromFilename(localUrl));
             _audioPlayer.FinishedPlaying += Player_FinishedPlaying;
             _audioPlayer.Play();
-        }
-
-        private void Player_FinishedPlaying(object sender, AVStatusEventArgs e)
-        {
-            OnFinishedPlaying?.Invoke();
         }
 
         public void Pause()
@@ -41,6 +37,11 @@ namespace Spelling2.iOS.Services
         public void Play()
         {
             _audioPlayer?.Play();
+        }
+
+        private void Player_FinishedPlaying(object sender, AVStatusEventArgs e)
+        {
+            OnFinishedPlaying?.Invoke();
         }
     }
 }
