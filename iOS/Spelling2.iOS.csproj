@@ -114,6 +114,14 @@
     <ImageAsset Include="Assets.xcassets\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon40.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon60.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon58.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon29%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon40%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon40%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon60%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iTunesArtwork.png" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
