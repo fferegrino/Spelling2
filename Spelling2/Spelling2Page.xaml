@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Spelling2" xmlns:cv="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView" x:Class="Spelling2.Spelling2Page">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+
+            <Entry x:Name="InputEntry" FontFamily="Roboto Mono"
+        HorizontalTextAlignment="Center"  FontSize="{StaticResource NotSoHuge}"></Entry>
+            <Label x:Name="OutputLabel"  FontFamily="Roboto Mono" HorizontalTextAlignment="Center"  FontSize="{StaticResource NotSoHuge}" IsVisible="false"></Label>
+
+
+            <Button Text="Spell!" 
+                    Grid.Row="1" x:Name="SpellButton"  
+                    Clicked="SpellButton_Clicked"></Button>
+            <cv:CarouselView Grid.Row="1"  
+                x:Name="LettersView" 
+                 ItemSelected="LettersView_ItemSelected"
+                IsVisible="false">
+            <cv:CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label FontSize="{StaticResource Huge}" FontFamily="Roboto Mono"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            Text="{Binding Char}"></Label>
+                        <Label Grid.Row="1" FontSize="{StaticResource Bigger}" FontFamily="Roboto Mono"
+                            HorizontalTextAlignment="Center"
+                            Margin="10"
+                            Text="{Binding Icao2008}"></Label>
+                        <Label Grid.Row="2" FontSize="{StaticResource NotSoHuge}" FontFamily="Roboto Mono"
+                            HorizontalTextAlignment="Center"
+                            Margin="10"
+                            Text="{Binding Icao}"></Label>
+                    </Grid>
+                </DataTemplate>
+            </cv:CarouselView.ItemTemplate>
+        </cv:CarouselView>
+    </Grid>
+</ContentPage>
