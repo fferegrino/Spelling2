@@ -1,18 +1,15 @@
-﻿using System;
-
-using Android.App;
-using Android.Content;
+﻿using Android.App;
 using Android.Content.PM;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Android.OS;
 using CarouselView.FormsPlugin.Android;
+using Xamarin.Forms;
+using Xamarin.Forms.Platform.Android;
 
 namespace Spelling2.Droid
 {
-    [Activity(Label = "Spelling2.Droid", Icon = "@drawable/icon", Theme = "@style/MyTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
-    public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
+    [Activity(Label = "Spelling2.Droid", Icon = "@drawable/icon", Theme = "@style/MyTheme", MainLauncher = true,
+        ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    public class MainActivity : FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle bundle)
         {
@@ -21,7 +18,7 @@ namespace Spelling2.Droid
 
             base.OnCreate(bundle);
 
-            global::Xamarin.Forms.Forms.Init(this, bundle);
+            Forms.Init(this, bundle);
             CarouselViewRenderer.Init();
 
             LoadApplication(new App());

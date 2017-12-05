@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Diagnostics;
+using Android.Content.Res;
 using Android.Media;
 using Spelling2.Droid.Services;
 using Spelling2.Services;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(AudioPlayerService))]
+
 namespace Spelling2.Droid.Services
 {
     public class AudioPlayerService : IAudioPlayerService
@@ -23,7 +26,7 @@ namespace Spelling2.Droid.Services
 
             var fullPath = pathToAudioFile;
 
-            Android.Content.Res.AssetFileDescriptor afd = null;
+            AssetFileDescriptor afd = null;
 
             try
             {
@@ -35,7 +38,7 @@ namespace Spelling2.Droid.Services
             }
             if (afd != null)
             {
-                System.Diagnostics.Debug.WriteLine("Length " + afd.Length);
+                Debug.WriteLine("Length " + afd.Length);
                 if (_mediaPlayer == null)
                 {
                     _mediaPlayer = new MediaPlayer();
@@ -54,11 +57,6 @@ namespace Spelling2.Droid.Services
             }
         }
 
-        void MediaPlayer_Completion(object sender, EventArgs e)
-        {
-            OnFinishedPlaying?.Invoke();
-        }
-
         public void Pause()
         {
             _mediaPlayer?.Pause();
@@ -67,6 +65,11 @@ namespace Spelling2.Droid.Services
         public void Play()
         {
             _mediaPlayer?.Start();
+        }
+
+        private void MediaPlayer_Completion(object sender, EventArgs e)
+        {
+            OnFinishedPlaying?.Invoke();
         }
     }
 }
