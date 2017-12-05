@@ -20,7 +20,7 @@
                     Clicked="SpellButton_Clicked"></Button>
         <cv:CarouselViewControl  Grid.Row="1"  
                 x:Name="LettersView" 
-                 ItemSelected="LettersView_ItemSelected"
+            PositionSelected="LettersView_ItemSelected"
                 IsVisible="false">
             <cv:CarouselViewControl.ItemTemplate>
                 <DataTemplate>

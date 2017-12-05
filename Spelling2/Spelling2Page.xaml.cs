@@ -2,9 +2,11 @@
 using System.Linq;
 using System.Collections.Generic;
 using System;
+using Xamarin.Forms.Xaml;
 
 namespace Spelling2
 {
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Spelling2Page : ContentPage
     {
         string currentWord;
@@ -100,7 +102,7 @@ namespace Spelling2
             }
         }
 
-        void LettersView_ItemSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
+        void LettersView_ItemSelected(object sender, CarouselView.FormsPlugin.Abstractions.PositionSelectedEventArgs e)
         {
             HighlightLetter(LettersView.Position);   
         }
