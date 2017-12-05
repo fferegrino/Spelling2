@@ -3,6 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System;
 using Xamarin.Forms.Xaml;
+using Spelling2.Services;
 
 namespace Spelling2
 {
@@ -10,10 +11,13 @@ namespace Spelling2
     public partial class Spelling2Page : ContentPage
     {
         string currentWord;
+        IAudioPlayerService _audioPlayerService;
 
         public Spelling2Page()
         {
             InitializeComponent();
+
+            _audioPlayerService = DependencyService.Get<IAudioPlayerService>();
 
             var fontFamily = Device.RuntimePlatform == Device.Android
                 ? "RobotoMono-Regular.ttf#Roboto Mono"
@@ -56,7 +60,6 @@ namespace Spelling2
             InputEntry.Focus();
 
             LettersView.Position = 0;
-
         }
 
         private void OutputTapped(object sender, EventArgs e)
@@ -64,7 +67,13 @@ namespace Spelling2
             
         }
 
-        void SpellButton_Clicked (object sender, System.EventArgs e)
+        void PlaySound_Clicked(object sender, System.EventArgs e)
+        {
+            var letter = currentWord.Substring(LettersView.Position, 1).ToUpper();
+            _audioPlayerService.Play(letter+".mp3");
+        }
+
+        public void SpellButton_Clicked (object sender, System.EventArgs e)
         {
             currentWord = InputEntry.Text;
             if(!String.IsNullOrEmpty(currentWord))
@@ -72,16 +81,23 @@ namespace Spelling2
 
                 InputEntry.IsVisible = false;
                 SpellButton.IsVisible = false;
-
+                int i = 0;
                 var letters = currentWord.ToCharArray()
-                                  .Select(c => Letter.Letters.FirstOrDefault(s => s.Char == c.ToString().ToUpper()));
+                                         .Select(c => 
+                {
+                    var a = Letter.Letters.FirstOrDefault(s => s.Char == c.ToString().ToUpper());
+
+                                             return new Letter { Char = a.Char, Icao2008 = a.Icao2008, Icao = a.Icao, WikipediaIpa = a.WikipediaIpa };
+
+                });
                 LettersView.ItemsSource = letters;
 
                 HighlightLetter(0);
                 OutputLabel.IsVisible = true;
                 LettersView.IsVisible = true;
             }
-            else{
+            else
+            {
                 InputEntry.Focus();
             }
 
@@ -98,9 +114,6 @@ namespace Spelling2
                 fs.Spans.Add(new Span { Text = hightlighted, ForegroundColor = Color.Red });
                 fs.Spans.Add(new Span { Text =second});
                 OutputLabel.FormattedText = fs;
-            }
-            else{
-                
             }
         }
 
@@ -121,7 +134,7 @@ namespace Spelling2
     public class Letter 
     {
         public static System.Collections.Generic.List<Letter> Letters = new List<Letter>{
-            new Letter { Char = "A", Icao2008 = "Alfa", Icao = "[ˈælfʌ]", WikipediaIpa="/ˈælfɑː/ AL-fah" },
+                new Letter { Char = "A", Icao2008 = "Alfa", Icao = "[ˈælfʌ]", WikipediaIpa="/ˈælfɑː/ AL-fah" },
                 new Letter { Char = "B", Icao2008 = "Bravo", Icao = "[brɑˈvoʊ]", WikipediaIpa="/ˌbrɑːˈvoʊ/ BRAH-VOH" },
                 new Letter { Char = "C", Icao2008 = "Charlie", Icao = "[ˈtʃɑ˞li], [ˈʃɑ˞li]", WikipediaIpa="/ˈtʃɑːrliː/ CHAR-lee or /ˈʃɑːrliː/ SHAR-lee" },
                 new Letter { Char = "D", Icao2008 = "Delta", Icao = "[ˈdɛltʌ]", WikipediaIpa="/ˈdɛltɑː/ DEL-tah" },
@@ -160,9 +173,9 @@ namespace Spelling2
                 new Letter { Char = " ", Icao2008 = "Blank", Icao = "Blank", WikipediaIpa="/ˈnaɪnər/ NY-nər[18] /ˌnɔːvˌeɪˈnaɪnər/ NOV-AY-NY-nər" }
         };
 
-        public string Char { get; private set; }
-        public string Icao2008 { get; private set; }
-        public string Icao { get; private set; }
-        public string WikipediaIpa { get; private set; }
+        public string Char { get; set; }
+        public string Icao2008 { get; set; }
+        public string Icao { get; set; }
+        public string WikipediaIpa { get; set; }
     }
 }

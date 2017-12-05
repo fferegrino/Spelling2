@@ -29,6 +29,7 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
                         <Label FontSize="{StaticResource Huge}" FontFamily="Roboto Mono"
                             HorizontalTextAlignment="Center"
@@ -42,6 +43,7 @@
                             HorizontalTextAlignment="Center"
                             Margin="10"
                             Text="{Binding Icao}"></Label>
+                        <Button Grid.Row="3" Clicked="PlaySound_Clicked" Text="Play" />
                     </Grid>
                 </DataTemplate>
             </cv:CarouselViewControl.ItemTemplate>

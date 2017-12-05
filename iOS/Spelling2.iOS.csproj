@@ -127,9 +127,49 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Services\AudioPlayerService.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Fonts\RobotoMono-Regular.ttf" />
+    <BundleResource Include="Resources\0.mp3" />
+    <BundleResource Include="Resources\1.mp3" />
+    <BundleResource Include="Resources\2.mp3" />
+    <BundleResource Include="Resources\3.mp3" />
+    <BundleResource Include="Resources\4.mp3" />
+    <BundleResource Include="Resources\5.mp3" />
+    <BundleResource Include="Resources\6.mp3" />
+    <BundleResource Include="Resources\7.mp3" />
+    <BundleResource Include="Resources\8.mp3" />
+    <BundleResource Include="Resources\9.mp3" />
+    <BundleResource Include="Resources\A.mp3" />
+    <BundleResource Include="Resources\B.mp3" />
+    <BundleResource Include="Resources\C.mp3" />
+    <BundleResource Include="Resources\D.mp3" />
+    <BundleResource Include="Resources\E.mp3" />
+    <BundleResource Include="Resources\F.mp3" />
+    <BundleResource Include="Resources\G.mp3" />
+    <BundleResource Include="Resources\H.mp3" />
+    <BundleResource Include="Resources\I.mp3" />
+    <BundleResource Include="Resources\J.mp3" />
+    <BundleResource Include="Resources\K.mp3" />
+    <BundleResource Include="Resources\L.mp3" />
+    <BundleResource Include="Resources\M.mp3" />
+    <BundleResource Include="Resources\N.mp3" />
+    <BundleResource Include="Resources\O.mp3" />
+    <BundleResource Include="Resources\P.mp3" />
+    <BundleResource Include="Resources\Q.mp3" />
+    <BundleResource Include="Resources\R.mp3" />
+    <BundleResource Include="Resources\S.mp3" />
+    <BundleResource Include="Resources\T.mp3" />
+    <BundleResource Include="Resources\U.mp3" />
+    <BundleResource Include="Resources\V.mp3" />
+    <BundleResource Include="Resources\W.mp3" />
+    <BundleResource Include="Resources\X.mp3" />
+    <BundleResource Include="Resources\Y.mp3" />
+    <BundleResource Include="Resources\Z.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.5.0.121934\build\netstandard1.0\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.5.0.121934\build\netstandard1.0\Xamarin.Forms.targets')" />
