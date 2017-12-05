@@ -33,13 +33,6 @@ namespace Spelling2
             outputTapGestureRecognizer.Tapped += OutputTapped;
             OutputLabel.GestureRecognizers.Add(outputTapGestureRecognizer);
 
-            var outputDoubleTapGestureRecognizer = new TapGestureRecognizer
-            {
-                NumberOfTapsRequired = 2
-            };
-            outputDoubleTapGestureRecognizer.Tapped += OutputDoubleTapped;
-            OutputLabel.GestureRecognizers.Add(outputDoubleTapGestureRecognizer);
-
 
             var lettersViewTappedRecognizer = new TapGestureRecognizer
             {
@@ -48,8 +41,8 @@ namespace Spelling2
             lettersViewTappedRecognizer.Tapped += LettersView_Tapped;
             LettersView.GestureRecognizers.Add(lettersViewTappedRecognizer);
         }
-
-        private void OutputDoubleTapped(object sender, EventArgs e)
+        
+        private void OutputTapped(object sender, EventArgs e)
         {
             InputEntry.IsVisible = true;
             SpellButton.IsVisible = true;
@@ -60,11 +53,6 @@ namespace Spelling2
             InputEntry.Focus();
 
             LettersView.Position = 0;
-        }
-
-        private void OutputTapped(object sender, EventArgs e)
-        {
-            
         }
 
         void PlaySound_Clicked(object sender, System.EventArgs e)
