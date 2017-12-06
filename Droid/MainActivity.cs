@@ -2,6 +2,7 @@
 using Android.Content.PM;
 using Android.OS;
 using CarouselView.FormsPlugin.Android;
+using Plugin.Settings;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 

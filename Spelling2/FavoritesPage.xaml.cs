@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
-
+using Spelling2.Services;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,22 +12,15 @@ namespace Spelling2
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class FavoritesPage : ContentPage
     {
-        public ObservableCollection<string> Items { get; set; }
+        private ObservableCollection<string> Favorites { get; set; }
+        private readonly LettersStore _store;
 
         public FavoritesPage()
         {
             InitializeComponent();
-
-            Items = new ObservableCollection<string>
-            {
-                "Item 1",
-                "Item 2",
-                "Item 3",
-                "Item 4",
-                "Item 5"
-            };
-
-            MyListView.ItemsSource = Items;
+            _store = new LettersStore();
+            Favorites = new ObservableCollection<string>(_store.GetFavorites());
+            FavesList.ItemsSource = Favorites;
         }
 
         async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
@@ -35,10 +28,20 @@ namespace Spelling2
             if (e.Item == null)
                 return;
 
-            await DisplayAlert("Item Tapped", "An item was tapped.", "OK");
+            string selected = e.Item as string;
+            var homePage = (App.Current as App).HomePage;
+            homePage.SpellPage.SetWord(selected);
+            homePage.CurrentPage = homePage.Children.First();
 
             //Deselect Item
             ((ListView)sender).SelectedItem = null;
+        }
+
+        public void AddFavorite(string fave)
+        {
+            Favorites.Add(fave);
+
+            _store.SaveFavorites(Favorites);
         }
     }
 }

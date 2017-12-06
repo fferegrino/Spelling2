@@ -18,6 +18,13 @@ namespace Spelling2
         {
             InitializeComponent();
 
+            var faveToolbarItem = new ToolbarItem()
+            {
+                Text = "Favorite"
+            };
+            faveToolbarItem.Clicked += FaveToolbarItemOnClicked;
+            ToolbarItems.Add(faveToolbarItem);
+
             _audioPlayerService = DependencyService.Get<IAudioPlayerService>();
 
             var fontFamily = Device.RuntimePlatform == Device.Android
@@ -43,6 +50,14 @@ namespace Spelling2
             LettersView.GestureRecognizers.Add(lettersViewTappedRecognizer);
         }
 
+        private void FaveToolbarItemOnClicked(object sender, EventArgs eventArgs)
+        {
+            if (!string.IsNullOrEmpty(currentWord))
+            {
+                (App.Current as App).HomePage.FavPage.AddFavorite(currentWord);
+            }
+        }
+
         private void OutputTapped(object sender, EventArgs e)
         {
             InputEntry.IsVisible = true;
@@ -65,6 +80,10 @@ namespace Spelling2
         public void SpellButton_Clicked(object sender, EventArgs e)
         {
             currentWord = InputEntry.Text;
+        }
+
+        private void SetWord()
+        {
             if (!string.IsNullOrEmpty(currentWord))
             {
                 InputEntry.IsVisible = false;
@@ -103,9 +122,9 @@ namespace Spelling2
                 var hightlighted = currentWord.Substring(letterIndex, 1);
                 var second = currentWord.Substring(letterIndex + 1);
                 var fs = new FormattedString();
-                fs.Spans.Add(new Span {Text = first});
-                fs.Spans.Add(new Span {Text = hightlighted, ForegroundColor = Color.Red});
-                fs.Spans.Add(new Span {Text = second});
+                fs.Spans.Add(new Span { Text = first });
+                fs.Spans.Add(new Span { Text = hightlighted, ForegroundColor = Color.Red });
+                fs.Spans.Add(new Span { Text = second });
                 OutputLabel.FormattedText = fs;
             }
         }
@@ -119,6 +138,12 @@ namespace Spelling2
         {
             var currentPosition = LettersView.Position;
             if (currentPosition + 1 < currentWord?.Length) LettersView.Position = currentPosition + 1;
+        }
+
+        public void SetWord(string selected)
+        {
+            currentWord = selected;
+            SetWord();
         }
     }
 

@@ -9,8 +9,10 @@ namespace Spelling2
             InitializeComponent();
             IntializeCodedComponents();
 
-            MainPage = new MainPage();
+            MainPage = new  NavigationPage(new MainPage());
         }
+
+        public MainPage HomePage => (MainPage as NavigationPage)?.CurrentPage as MainPage;
 
         private void IntializeCodedComponents()
         {
