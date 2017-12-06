@@ -80,6 +80,7 @@ namespace Spelling2
         public void SpellButton_Clicked(object sender, EventArgs e)
         {
             currentWord = InputEntry.Text;
+            SetWord();
         }
 
         private void SetWord()
@@ -105,6 +106,7 @@ namespace Spelling2
                 LettersView.ItemsSource = letters;
 
                 HighlightLetter(0);
+                LettersView.Position = 0;
                 OutputLabel.IsVisible = true;
                 LettersView.IsVisible = true;
             }

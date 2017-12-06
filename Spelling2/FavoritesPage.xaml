@@ -9,9 +9,17 @@
             CachingStrategy="RecycleElement">
         
         <ListView.ItemTemplate>
-        <DataTemplate>
-            <TextCell Text="{Binding .}" />
-        </DataTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <ViewCell.ContextActions>
+                        <MenuItem Clicked="OnDelete" CommandParameter="{Binding .}"
+                                  Text="Delete" IsDestructive="True" />
+                    </ViewCell.ContextActions>
+                    <StackLayout Padding="15,10">
+                        <Label Text="{Binding .}" FontSize="Large" />
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
     </ListView.ItemTemplate>
   </ListView>
 </ContentPage>

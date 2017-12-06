@@ -23,7 +23,7 @@ namespace Spelling2
             FavesList.ItemsSource = Favorites;
         }
 
-        async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
+        void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             if (e.Item == null)
                 return;
@@ -39,8 +39,15 @@ namespace Spelling2
 
         public void AddFavorite(string fave)
         {
+            if (Favorites.Contains(fave)) return;
             Favorites.Add(fave);
+            _store.SaveFavorites(Favorites);
+        }
 
+        public void OnDelete(object sender, EventArgs e)
+        {
+            var mi = ((MenuItem)sender);
+            Favorites.Remove(mi.CommandParameter as string);
             _store.SaveFavorites(Favorites);
         }
     }
