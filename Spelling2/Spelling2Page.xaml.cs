@@ -72,12 +72,6 @@ namespace Spelling2
             LettersView.Position = 0;
         }
 
-        private void PlaySound_Clicked(object sender, EventArgs e)
-        {
-            var letter = currentWord.Substring(LettersView.Position, 1).ToUpper();
-            _audioPlayerService.Play(letter + ".mp3");
-        }
-
         public void SpellButton_Clicked(object sender, EventArgs e)
         {
             currentWord = InputEntry.Text;
@@ -103,7 +97,6 @@ namespace Spelling2
             {
                 InputEntry.IsVisible = false;
                 SpellButton.IsVisible = false;
-                var i = 0;
                 var letters = currentWord.ToCharArray()
                     .Select(c =>
                     {
@@ -150,6 +143,12 @@ namespace Spelling2
         {
             var currentPosition = LettersView.Position;
             if (currentPosition + 1 < currentWord?.Length) LettersView.Position = currentPosition + 1;
+        }
+
+        private void Spelling_Tapped(object sender, EventArgs e)
+        {
+            var letter = currentWord.Substring(LettersView.Position, 1).ToUpper();
+            _audioPlayerService.Play(letter + ".mp3");
         }
 
         public void SetWord(string selected)

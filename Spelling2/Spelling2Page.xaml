@@ -33,18 +33,22 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
                         <Label FontSize="{StaticResource Huge}" FontFamily="Roboto Mono"
                                VerticalTextAlignment="Center"
                                Text="{Binding Char}" />
                         <Label Grid.Row="1" FontSize="{StaticResource Bigger}" FontFamily="Roboto Mono"
                                Margin="10"
-                               Text="{Binding Icao2008}" />
+                               Text="{Binding Icao2008}">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Tapped="Spelling_Tapped"
+                                    NumberOfTapsRequired="1" />
+                            </Label.GestureRecognizers>
+                        </Label>
                         <Label Grid.Row="2" FontSize="{StaticResource NotSoHuge}" FontFamily="Roboto Mono"
                                Margin="10"
                                Text="{Binding Icao}" />
-                        <Button Grid.Row="3" Clicked="PlaySound_Clicked" Text="Play" />
                     </Grid>
                 </DataTemplate>
             </cv:CarouselViewControl.ItemTemplate>
