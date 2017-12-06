@@ -24,9 +24,13 @@ namespace Spelling2.iOS.Services
             }
 
             var localUrl = pathToAudioFile;
-            _audioPlayer = AVAudioPlayer.FromUrl(NSUrl.FromFilename(localUrl));
-            _audioPlayer.FinishedPlaying += Player_FinishedPlaying;
-            _audioPlayer.Play();
+
+            if(NSFileManager.DefaultManager.FileExists(localUrl))
+            {
+                _audioPlayer = AVAudioPlayer.FromUrl(NSUrl.FromFilename(localUrl));
+                _audioPlayer.FinishedPlaying += Player_FinishedPlaying;
+                _audioPlayer.Play();
+            }
         }
 
         public void Pause()
