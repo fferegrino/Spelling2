@@ -205,6 +205,24 @@
     <BundleResource Include="Resources\X.mp3" />
     <BundleResource Include="Resources\Y.mp3" />
     <BundleResource Include="Resources\Z.mp3" />
+    <BundleResource Include="Resources\fav.png" />
+    <BundleResource Include="Resources\fav%402x.png" />
+    <BundleResource Include="Resources\fav%403x.png" />
+    <BundleResource Include="Resources\spell.png" />
+    <BundleResource Include="Resources\spell%402x.png" />
+    <BundleResource Include="Resources\spell%403x.png" />
+    <BundleResource Include="Resources\fav_tab.png" />
+    <BundleResource Include="Resources\fav_tab%402x.png" />
+    <BundleResource Include="Resources\fav_tab%403x.png" />
+    <BundleResource Include="Resources\fav_tab_active.png" />
+    <BundleResource Include="Resources\fav_tab_active%402x.png" />
+    <BundleResource Include="Resources\fav_tab_active%403x.png" />
+    <BundleResource Include="Resources\spell_tab.png" />
+    <BundleResource Include="Resources\spell_tab%402x.png" />
+    <BundleResource Include="Resources\spell_tab%403x.png" />
+    <BundleResource Include="Resources\spell_tab_active.png" />
+    <BundleResource Include="Resources\spell_tab_active%402x.png" />
+    <BundleResource Include="Resources\spell_tab_active%403x.png" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
