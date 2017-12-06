@@ -1,5 +1,6 @@
 ﻿using CarouselView.FormsPlugin.iOS;
 using Foundation;
+using Messier16.Forms.Controls.iOS;
 using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
@@ -13,6 +14,7 @@ namespace Spelling2.iOS
         {
             Forms.Init();
             CarouselViewRenderer.Init();
+            PlatformTabbedPageRenderer.Init();
 
             LoadApplication(new App());
 

@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Messier16.Forms.Controls;
 using Xamarin.Forms;
 
 namespace Spelling2
 {
-    public class MainPage : TabbedPage
+    public class MainPage : PlatformTabbedPage
     {
         public Spelling2Page SpellPage { get; }
         public FavoritesPage FavPage { get; }
@@ -15,8 +16,8 @@ namespace Spelling2
 
         public MainPage()
         {
-            SpellPage = new Spelling2Page();
-            FavPage = new FavoritesPage();
+            SpellPage = new Spelling2Page() { Icon="spell_tab" };
+            FavPage = new FavoritesPage(){ Icon = "fav_tab" };
             //SettingsPage = new SettingsPage();
 
             Children.Add(SpellPage);

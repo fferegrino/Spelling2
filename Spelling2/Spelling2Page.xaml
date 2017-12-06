@@ -4,6 +4,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Spelling2"
              xmlns:cv="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+    xmlns:controls="clr-namespace:Spelling2.Controls"
              x:Class="Spelling2.Spelling2Page"
              Title="Spell">
     <Grid>
@@ -13,7 +14,7 @@
         </Grid.RowDefinitions>
 
 
-        <Entry x:Name="InputEntry" 
+        <controls:SpellingEntry x:Name="InputEntry" Completed="SpellingEntry_Completed"
                HorizontalTextAlignment="Center" FontSize="{StaticResource NotSoHuge}" />
         <Label x:Name="OutputLabel" FontSize="{StaticResource NotSoHuge}" IsVisible="false" />
 

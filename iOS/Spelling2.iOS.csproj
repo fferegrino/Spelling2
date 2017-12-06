@@ -106,6 +106,12 @@
     <Reference Include="Xamarin.Forms.Xaml">
       <HintPath>..\packages\Xamarin.Forms.2.5.0.121934\lib\Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
     </Reference>
+    <Reference Include="PlatformTabbedPage">
+      <HintPath>..\packages\PlatformTabbedPage.1.0.1-pre\lib\Xamarin.iOS10\PlatformTabbedPage.dll</HintPath>
+    </Reference>
+    <Reference Include="PlatformTabbedPage.iOS">
+      <HintPath>..\packages\PlatformTabbedPage.1.0.1-pre\lib\Xamarin.iOS10\PlatformTabbedPage.iOS.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Spelling2\Spelling2.csproj">
@@ -159,6 +165,7 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Services\AudioPlayerService.cs" />
+    <Compile Include="Controls\SpellingEntryRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Fonts\RobotoMono-Regular.ttf" />
@@ -200,6 +207,9 @@
     <BundleResource Include="Resources\Z.mp3" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Controls\" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.5.0.121934\build\netstandard1.0\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.5.0.121934\build\netstandard1.0\Xamarin.Forms.targets')" />
 </Project>

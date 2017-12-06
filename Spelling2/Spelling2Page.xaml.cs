@@ -20,7 +20,8 @@ namespace Spelling2
 
             var faveToolbarItem = new ToolbarItem()
             {
-                Text = "Favorite"
+                Text = "Favorite",
+                Icon ="fav.png"
             };
             faveToolbarItem.Clicked += FaveToolbarItemOnClicked;
             ToolbarItems.Add(faveToolbarItem);
@@ -80,6 +81,19 @@ namespace Spelling2
         public void SpellButton_Clicked(object sender, EventArgs e)
         {
             currentWord = InputEntry.Text;
+            if(!String.IsNullOrEmpty(currentWord))
+            {
+                SetWord();
+            }
+            else
+            {
+                InputEntry.Focus();
+            }
+        }
+
+        void SpellingEntry_Completed(object sender, System.EventArgs e)
+        {
+            currentWord = InputEntry.Text;
             SetWord();
         }
 
@@ -109,10 +123,6 @@ namespace Spelling2
                 LettersView.Position = 0;
                 OutputLabel.IsVisible = true;
                 LettersView.IsVisible = true;
-            }
-            else
-            {
-                InputEntry.Focus();
             }
         }
 

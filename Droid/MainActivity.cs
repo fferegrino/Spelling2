@@ -2,6 +2,7 @@
 using Android.Content.PM;
 using Android.OS;
 using CarouselView.FormsPlugin.Android;
+using Messier16.Forms.Controls.Droid;
 using Plugin.Settings;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
@@ -21,6 +22,7 @@ namespace Spelling2.Droid
 
             Forms.Init(this, bundle);
             CarouselViewRenderer.Init();
+            PlatformTabbedPageRenderer.Init();
 
             LoadApplication(new App());
         }
