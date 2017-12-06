@@ -13,10 +13,9 @@
         </Grid.RowDefinitions>
 
 
-        <Entry x:Name="InputEntry"
+        <Entry x:Name="InputEntry" 
                HorizontalTextAlignment="Center" FontSize="{StaticResource NotSoHuge}" />
-        <Label x:Name="OutputLabel" HorizontalTextAlignment="Center" FontSize="{StaticResource NotSoHuge}"
-               IsVisible="false" />
+        <Label x:Name="OutputLabel" FontSize="{StaticResource NotSoHuge}" IsVisible="false" />
 
 
         <Button Text="Spell!"
@@ -28,7 +27,7 @@
                                 IsVisible="false">
             <cv:CarouselViewControl.ItemTemplate>
                 <DataTemplate>
-                    <Grid>
+                    <Grid RowSpacing="0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
@@ -36,15 +35,12 @@
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
                         <Label FontSize="{StaticResource Huge}" FontFamily="Roboto Mono"
-                               HorizontalTextAlignment="Center"
                                VerticalTextAlignment="Center"
                                Text="{Binding Char}" />
                         <Label Grid.Row="1" FontSize="{StaticResource Bigger}" FontFamily="Roboto Mono"
-                               HorizontalTextAlignment="Center"
                                Margin="10"
                                Text="{Binding Icao2008}" />
                         <Label Grid.Row="2" FontSize="{StaticResource NotSoHuge}" FontFamily="Roboto Mono"
-                               HorizontalTextAlignment="Center"
                                Margin="10"
                                Text="{Binding Icao}" />
                         <Button Grid.Row="3" Clicked="PlaySound_Clicked" Text="Play" />

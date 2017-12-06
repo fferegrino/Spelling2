@@ -4,7 +4,10 @@
              x:Class="Spelling2.App">
     <Application.Resources>
         <ResourceDictionary>
-            <Color x:Key="PageBackgroundColor">Yellow</Color>
+            <Style  TargetType="Label">
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="TextColor" Value="Black" />
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
