@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using System.Collections.Generic;
 using System.Linq;
 using CarouselView.FormsPlugin.Abstractions;
@@ -97,10 +98,10 @@ namespace Spelling2
             {
                 InputEntry.IsVisible = false;
                 SpellButton.IsVisible = false;
-                var letters = currentWord.ToCharArray()
+                var letters =  currentWord.ToCharArray()
                     .Select(c =>
                     {
-                        var a = Letter.Letters.FirstOrDefault(s => s.Char == c.ToString().ToUpper());
+                        var a = Letter.Letters.FirstOrDefault(s => s.Char == c.Convert().ToString().ToUpper());
 
                         return new Letter
                         {

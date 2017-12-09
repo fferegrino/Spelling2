@@ -50,6 +50,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IAudioPlayerService.cs" />
     <Compile Include="Controls\SpellingEntry.cs" />
+    <Compile Include="CharConverterExtension.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="CarouselView.FormsPlugin.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
