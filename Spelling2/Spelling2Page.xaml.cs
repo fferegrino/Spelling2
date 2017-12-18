@@ -89,13 +89,17 @@ namespace Spelling2
         void SpellingEntry_Completed(object sender, System.EventArgs e)
         {
             currentWord = InputEntry.Text;
-            SetWord();
+            if (!string.IsNullOrEmpty(currentWord))
+            {
+                SetWord();
+            }
         }
 
         private void SetWord()
         {
             if (!string.IsNullOrEmpty(currentWord))
             {
+                Title = currentWord;
                 InputEntry.IsVisible = false;
                 SpellButton.IsVisible = false;
                 var letters =  currentWord.ToCharArray()
@@ -148,7 +152,8 @@ namespace Spelling2
 
         private void Spelling_Tapped(object sender, EventArgs e)
         {
-            var letter = currentWord.Substring(LettersView.Position, 1).ToUpper();
+            var converted = currentWord.Substring(LettersView.Position, 1).Convert();
+            var letter = Char.ToUpper(converted);
             _audioPlayerService.Play(letter + ".mp3");
         }
 
