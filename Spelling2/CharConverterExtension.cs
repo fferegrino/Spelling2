@@ -1015,10 +1015,18 @@ namespace Spelling2
             { 'ｚ', 'z'}
         };
 
-
         public static char Convert(this char c){
             if (_chr.ContainsKey(c))
                 return _chr[c];
+            return ' ';
+        }
+
+        public static char Convert(this string c)
+        {
+            if (c.Length != 1) return ' ';
+
+            if (_chr.ContainsKey(c[0]))
+                return _chr[c[0]];
             return ' ';
         }
     }
