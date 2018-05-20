@@ -16,8 +16,8 @@ namespace Spelling2
 
         public MainPage()
         {
-            SpellPage = new Spelling2Page() { Icon="spell_tab" };
-            FavPage = new FavoritesPage(){ Icon = "fav_tab" };
+            SpellPage = new Spelling2Page() { Title="Spell", Icon="spell_tab" };
+            FavPage = new FavoritesPage(){ Title="Favorites", Icon = "fav_tab" };
             //SettingsPage = new SettingsPage();
 
             Children.Add(SpellPage);
